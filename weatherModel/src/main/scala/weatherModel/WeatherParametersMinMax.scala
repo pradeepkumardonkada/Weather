@@ -1,0 +1,10 @@
+package weatherModel
+
+
+class WeatherParametersMinMax (var minWp: WeatherParameters, var maxWp: WeatherParameters) {
+  override def toString(): String = {
+    "Min: " + minWp + "\n:" + "Max: " + maxWp 
+  }
+  def minWeatherParameters = {  minWp }
+  def maxWeatherParameters = {  maxWp }
+ }
