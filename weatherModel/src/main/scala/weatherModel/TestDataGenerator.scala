@@ -1,3 +1,5 @@
+
+
 package weatherModel
 
 import java.util.Date
@@ -7,13 +9,18 @@ import scala.util.Random
 //import weatherModel.GeoCoordinate
 
 object TestDataGenerator {
+  
+  //Creates hashmap
+  
   val referenceMap = scala.collection.mutable.HashMap.empty[String, WeatherStation]
 
+  //The following methods imports reference data and adds key - value into hashmap.
+  
   def importReferenceData {
     var relPath = new java.io.File(".").getAbsolutePath();
     relPath = relPath.substring(0,relPath.length()-2)
     var referenceFiletoImport =  relPath + "/src/main/resources/testdata.csv"
-
+    
     val bufferedSource = io.Source.fromFile(referenceFiletoImport)
 
     for (line <- bufferedSource.getLines().drop(1)) {
@@ -44,6 +51,8 @@ object TestDataGenerator {
     }
   }
 
+  //Test Request Data is imported through this method.
+  
   def generateTestData(model: WeatherGenerationModel) = {
     var testRequestsFiletoImport = new java.io.File(".").getAbsolutePath() + "/src/main/resources/DataRequests.csv"
     val bufferedSource = io.Source.fromFile(testRequestsFiletoImport)
@@ -61,7 +70,8 @@ object TestDataGenerator {
       }
       val wp = model.generateWeatherParameters(ws, dateRequested)
 
-      // println(weatherStationRequested + " " + testRequestsArray(1) + "T" + getRandomTime + " " + wp )
+     // Test data for weather model is generated from the below
+      
       println(weatherStationRequested + "|" + ws.getGeoCoordinate.toString() + "|" + convertDateToString(dateRequested) + "|" + wp)
 
     }

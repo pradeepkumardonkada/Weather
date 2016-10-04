@@ -1,4 +1,5 @@
 
+
 package weatherModel
 
 class WeatherStation (private var name: String, private var IATACode: String, private var geoCoordinate: GeoCoordinate) {

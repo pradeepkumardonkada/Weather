@@ -1,4 +1,5 @@
 
+//Class that takes latitude, longitude and altitude as inputs and returns Location as output
 
 package weatherModel
 
