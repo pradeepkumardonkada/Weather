@@ -3,6 +3,11 @@
 
 package weatherModel
 
+/**
+ * @GeoCoordinate This class latitude, longitude and altitude as input returns Location from the reference data
+ * For any location that is not present in the reference data "Unknown" is returned as the location
+ */
+
 class GeoCoordinate (latitude: Double, longitude: Double, altitude: Double) {
   private var unknown: Boolean = false
   

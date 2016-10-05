@@ -1,38 +1,45 @@
 
-/* Author: Pradeep Kumar Donkada
+/** @Author: Pradeep Kumar Donkada
  * Program : Random number based test data generator for testing weather models
  * 
- * Summary of the model and model flow
- * ----------------------------------
- 
-1. Main() calls TestDataGenerator class
-2.  Test generator loads reference data about weather stations
-3.  Weather stations contain min-max weather parameters and location information
-4. Test data generator generates test data in terms of weather parameters. 
-5. Test data generator uses weather generation models and for this example I came up 
-    with a simple range based random weather generation model. It generates weather 
-    parameters within the constraints of min and max parameters 
-    loaded as reference data.
-  
-  Input and Output Data
-  ----------------------
-  
-  1. This model imports various weather parameters from a csv file as reference data
-     (The path to the Reference csv file is in Line 22 of TestDatGenerator.scala class)
-  
-  2. This model assumes request for generating test data is entered in csv file. 
-     (The path to the Reference csv file is in Line 57 of TestDatGenerator.scala class)
-  
+ * @notes: The files ReferenceData.csv (Reference Data that used as input to the model) and
+ *                   TestDataRequests.csv (user input file for generating test data) are placed in the resources folder
+ *                   within the main folder.
  */
 
-
-//Main Class that imports Weather Data and generates output
-
 package weatherModel
-
+import java.io.File
 object WS{
   def main(args: Array[String]){
-    TestDataGenerator.importReferenceData
-    TestDataGenerator.generateTestData(RangeBasedRandomWeatherGenerationModel)
-   }
-}
+
+    if (args.length == 0) {
+      println("Please provide the path where ReferenceData and TestDataRequst files are located as the first argument")
+    }
+    var f: File = new File(args(0))
+    if (!f.exists || !f.isDirectory()) {
+        println("The path provided doesn't exist or is not a FileFolder")
+        return
+    }
+    var inputFile = "";
+    inputFile = "ReferenceData.csv"      
+    if (!new java.io.File(args(0) + "/" +  inputFile).exists) {
+        println("File " + inputFile + " is not found")
+        return
+    }
+      inputFile = "TestDataRequests.csv"
+    if (!new java.io.File(args(0) + "/" +  inputFile).exists) {
+        println("File " + inputFile + " is not found")
+        return
+    }
+    
+    TestDataGenerator.importReferenceData(args(0))
+
+   /*
+    * WeatherGenerationModel to be used in this test data generation is RangeBasedRandom. However in the future if other
+    * WeatherGenerationModels become available, they can be used here to generate the test data with those models.
+    */
+    TestDataGenerator.generateTestData(args(0), RangeBasedRandomWeatherGenerationModel)
+  
+  }
+ }
+

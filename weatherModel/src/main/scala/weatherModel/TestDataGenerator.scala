@@ -6,20 +6,24 @@ import java.util.Date
 import java.util.Calendar
 import java.text.SimpleDateFormat
 import scala.util.Random
-//import weatherModel.GeoCoordinate
+/** @ TestDataGenerator
+ *  Imports Reference Data and generates Test Data 
+ */
+
 
 object TestDataGenerator {
   
   //Creates hashmap
   
   val referenceMap = scala.collection.mutable.HashMap.empty[String, WeatherStation]
-
-  //The following methods imports reference data and adds key - value into hashmap.
+/**
+ * @importReferenceData: Loads the reference data into a hashmap to be used for generating test data.
+ * @path Path to the file ReferenceData.csv
+ * 
+ */
   
-  def importReferenceData {
-    var relPath = new java.io.File(".").getAbsolutePath();
-    relPath = relPath.substring(0,relPath.length()-2)
-    var referenceFiletoImport =  relPath + "/src/main/resources/testdata.csv"
+  def importReferenceData(path: String) {
+    var referenceFiletoImport =  path + "/ReferenceData.csv"
     
     val bufferedSource = io.Source.fromFile(referenceFiletoImport)
 
@@ -51,10 +55,17 @@ object TestDataGenerator {
     }
   }
 
-  //Test Request Data is imported through this method.
+
+/**
+ * generateTestData: Generates test data based on TestDataRequests.csv
+ * @WeatherGenerationModel - Model used to generate the weather data.Any concrete subclass of weather generation model 
+ * can be passed to be used by this method. 
+ * 
+ */
   
-  def generateTestData(model: WeatherGenerationModel) = {
-    var testRequestsFiletoImport = new java.io.File(".").getAbsolutePath() + "/src/main/resources/DataRequests.csv"
+  
+  def generateTestData(path: String , model: WeatherGenerationModel) = {
+    var testRequestsFiletoImport = path  + "/TestDataRequests.csv"
     val bufferedSource = io.Source.fromFile(testRequestsFiletoImport)
 
     for (line <- bufferedSource.getLines().drop(1)) {
@@ -77,6 +88,12 @@ object TestDataGenerator {
     }
   }
 
+/**
+ *  Utility classes here...
+ *  @dateStr Date input
+ * 
+ */
+  
   def getMonthFromDateString(dateStr: String): Int = {
     var cal = Calendar.getInstance()
     cal.setTime(new SimpleDateFormat("yyyy-MM-dd").parse(dateStr))
