@@ -1,6 +1,3 @@
-/*This object generates Random Weather Test Data based on Random Numbers. It also generates
- * and assigns random weather parameters to the model
- */
 
 
 package weatherModel

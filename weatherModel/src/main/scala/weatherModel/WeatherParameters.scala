@@ -1,5 +1,7 @@
 
-// Class with all the weather parameters defined.
+/** Class with all the weather parameters defined.
+ *  
+ */
 
 package weatherModel
 

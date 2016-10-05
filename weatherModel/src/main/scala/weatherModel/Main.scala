@@ -3,8 +3,8 @@
  * Program : Random number based test data generator for testing weather models
  * 
  * @notes: The files ReferenceData.csv (Reference Data that used as input to the model) and
- *                   TestDataRequests.csv (user input file for generating test data) are placed in the resources folder
- *                   within the main folder.
+ *            TestDataRequests.csv (user input file for generating test data) are placed in the resources folder
+ *            within the main folder.
  */
 
 package weatherModel
