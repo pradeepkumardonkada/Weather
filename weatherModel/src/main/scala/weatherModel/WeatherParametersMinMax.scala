@@ -1,5 +1,6 @@
 /**
  * Generates different objects for imported test reference data (min and max temperature) parameters
+ * 
  */
 
 package weatherModel

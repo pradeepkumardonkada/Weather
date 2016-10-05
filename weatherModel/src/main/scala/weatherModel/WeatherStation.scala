@@ -3,6 +3,7 @@
  * @name : Name of the weather is passed as an argument
  * @IATA code : IATA code of the weather station
  * @Geocordinate : Location retuned from GeoCoordinate class
+ * 
  */
 
 package weatherModel
