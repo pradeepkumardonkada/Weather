@@ -1,5 +1,12 @@
 # Weather
 
+About the model
+
+This model generates test data for different weather stations to test the weather forecast model. It reads the actual weather readings for different stations as input and generates test data based on random numbers. 
+
+Programming Language
+Scala
+
 Process Flow /Model Flow
 
 1. main calls the class TestDataGenerator
@@ -9,5 +16,4 @@ Process Flow /Model Flow
     b) "Test requests data" - user input file (TestDataRequests.csv) containing the weather station and month details for which the test data has to be generated
         from the model. - This file is also saved in in src/main/resources folder.
 3. Data downloaded from step 2 contains min max weather parameters for eg. (for eg. min temperature and max temperature) and location information, which is used for generating test data to test weather model.
-4. Using the random generator TestDataGenerator generates test data in terms of weather parameters. The process has been detailed in the class
-   RandomWeatherGenerationModel
+4. Using the random generator function the class TestDataGenerator generates test data in terms of weather parameters. The process has been detailed in the class RandomWeatherGenerationModel
