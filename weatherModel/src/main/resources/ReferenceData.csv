@@ -1,5 +1,5 @@
 WeatherStation, minTemperature, maxTemperature, minPressure, maxPressure, Humidity, Rain,Conditions, Month,IATACode,Latitude,Longitude,Elevation
-New York,-3,6,29.58,30.64,67,85,,1,NYC,40.73061,-73.935242,7
+New York,-3,6,29.58,30.64,67,85,Rain,1,NYC,40.73061,-73.935242,7
 New York,-3,7,29.68,30.75,67,57,,2,NYC,40.73061,-73.935242,7
 New York,1,9,29.75,30.48,66,90,,3,NYC,40.73061,-73.935242,7
 New York,6,16,29.63,30.31,64,96,,4,NYC,40.73061,-73.935242,7
